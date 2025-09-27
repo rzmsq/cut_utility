@@ -67,6 +67,9 @@ func parseFieldsRaw(fieldsRaw string) ([]int, error) {
 			if err != nil || end < 1 {
 				return nil, errInvalidFields
 			}
+			if start > end {
+				return nil, errInvalidFields
+			}
 			for i := start; i <= end; i++ {
 				fieldSet[i-1] = struct{}{}
 			}

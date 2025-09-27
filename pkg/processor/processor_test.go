@@ -85,7 +85,7 @@ func TestProcessLine(t *testing.T) {
 				Delimiter: "\t",
 				Separated: false,
 			},
-			expectedOutput: "", // should return nothing when field is out of bounds
+			expectedOutput: "field1\n", // should return nothing when field is out of bounds
 		},
 		{
 			name: "separated mode - line contains delimiter",

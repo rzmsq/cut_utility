@@ -16,10 +16,9 @@ func ProcessLine(line string, config *parse.Config) {
 	var result []string
 
 	for _, col := range config.Fields {
-		if col >= len(fields) {
-			return
+		if col < len(fields) {
+			result = append(result, fields[col])
 		}
-		result = append(result, fields[col])
 	}
 
 	if len(result) > 0 {
