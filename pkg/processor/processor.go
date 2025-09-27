@@ -13,21 +13,16 @@ func ProcessLine(line string, config *parse.Config) {
 	}
 
 	fields := strings.Split(line, config.Delimiter)
-	for i, col := range config.Fields {
+	var result []string
+
+	for _, col := range config.Fields {
 		if col >= len(fields) {
 			return
 		}
-		printLine(fields[col], i, config)
+		result = append(result, fields[col])
 	}
-	return
-}
 
-// printLine - Вывод строки
-func printLine(field string, indx int, config *parse.Config) {
-	if indx >= len(field)-1 {
-		fmt.Print(field)
-	} else {
-		fmt.Print(field + config.Delimiter)
+	if len(result) > 0 {
+		fmt.Println(strings.Join(result, config.Delimiter))
 	}
-	fmt.Println()
 }
