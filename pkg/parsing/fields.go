@@ -79,7 +79,7 @@ func parseFieldsRaw(fieldsRaw string) ([]int, error) {
 		}
 	}
 
-	for key, _ := range fieldSet {
+	for key := range fieldSet {
 		fields = append(fields, key)
 	}
 
